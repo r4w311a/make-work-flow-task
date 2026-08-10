@@ -50,7 +50,8 @@ type User = {
 }
 
 async function fetchUsers(): Promise<User[]> {
-  const response = await fetch('http://localhost:8000/api/users')
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const response = await fetch(`${apiUrl}/api/users`)
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
