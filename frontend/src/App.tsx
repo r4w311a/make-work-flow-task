@@ -65,56 +65,56 @@ function IndexComponent() {
   })
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
-      <button 
-        onClick={() => refetch()} 
-        style={{ padding: '0.75rem 1.5rem', marginBottom: '1.5rem', cursor: 'pointer', borderRadius: '4px', border: '1px solid #ccc', backgroundColor: '#f0f0f0', fontWeight: 'bold' }}
-      >
-        Fetch Users
-      </button>
+    <div className="app-container">
+      <div className="header">
+        <h1>MAKE WORK FLOW</h1>
+        <p>Technical Assessment</p>
+      </div>
 
-      {isLoading && <p>Loading users...</p>}
-      
-      {isError && <p>Error loading users: {error?.message}</p>}
+      <div className="action-bar">
+        <button
+          className="btn-primary"
+          onClick={() => refetch()}
+          disabled={isLoading}
+        >
+          {isLoading ? 'Fetching...' : 'Fetch Users'}
+        </button>
+      </div>
+
+      {isError && <p className="status-message">Error loading users: {error?.message}</p>}
 
       {data && (
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr>
-              <th style={tableHeaderStyle}>ID</th>
-              <th style={tableHeaderStyle}>Name</th>
-              <th style={tableHeaderStyle}>Email</th>
-              <th style={tableHeaderStyle}>Created At</th>
-              <th style={tableHeaderStyle}>Updated At</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((user) => (
-              <tr key={user.id}>
-                <td style={tableCellStyle}>{user.id}</td>
-                <td style={tableCellStyle}>{user.name}</td>
-                <td style={tableCellStyle}>{user.email}</td>
-                <td style={tableCellStyle}>{new Date(user.created_at).toLocaleString()}</td>
-                <td style={tableCellStyle}>{new Date(user.updated_at).toLocaleString()}</td>
+        <div className="table-wrapper">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Updated At</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{new Date(user.created_at).toLocaleString()}</td>
+                  <td>{new Date(user.updated_at).toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
+
+      <div className="footer">
+        Developed by <span>Hussein Malkawi</span>
+      </div>
     </div>
   )
-}
-
-const tableHeaderStyle = {
-  borderBottom: '2px solid #ccc',
-  padding: '0.75rem',
-  textAlign: 'left' as const,
-  backgroundColor: '#fafafa',
-}
-
-const tableCellStyle = {
-  borderBottom: '1px solid #eee',
-  padding: '0.75rem',
 }
 
 export function App() {
