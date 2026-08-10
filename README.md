@@ -7,7 +7,12 @@ This is a monorepo containing a fullstack application built for the MAKE WORK FL
 - `backend/`: FastAPI + SQLAlchemy 2, managed with `uv`.
 - `docker-compose.yml`: Root compose file for running the frontend, backend, and PostgreSQL database.
 
-## How to Run
+## 🚀 Live Demo (Bonus)
+As a fun extra, I have deployed the application to a live environment so you can test it immediately without running it locally!
+- **Live Frontend:** [https://task.husseinmalkawi.com](https://task.husseinmalkawi.com)
+- **Live Backend API:** `https://backend.husseinmalkawi.com`
+
+## How to Run Locally
 
 The setup is entirely self-contained. You can start by simply running:
 
