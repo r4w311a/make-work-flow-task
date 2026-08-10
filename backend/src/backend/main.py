@@ -30,8 +30,13 @@ async def lifespan(app: FastAPI):
     try:
         user_count = db.scalar(select(User).limit(1))
         if not user_count:
-            dummy_user = User(name="Dummy User", email="dummy@example.com")
-            db.add(dummy_user)
+            users = [
+                User(name="Hussein", email="hussein@example.com"),
+                User(name="Omar", email="omar@example.com"),
+                User(name="Anas ", email="anas@example.com"),
+                User(name="Leen", email="leen@example.com")
+            ]
+            db.add_all(users)
             db.commit()
     finally:
         db.close()
