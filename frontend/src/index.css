@@ -15,6 +15,11 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text-main);
   display: flex;
+}
+
+#root {
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -22,8 +27,9 @@ body {
 .app-container {
   width: 100%;
   max-width: 900px;
-  margin: 2rem;
-  padding: 2.5rem;
+  margin: 1rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
   background: var(--surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -83,7 +89,7 @@ body {
 .table-wrapper {
   background: white;
   border-radius: 12px;
-  overflow: hidden;
+  overflow-x: auto;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -142,4 +148,11 @@ body {
   padding: 2rem;
   color: var(--text-muted);
   font-size: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .app-container {
+    padding: 2.5rem;
+    margin: 2rem;
+  }
 }
